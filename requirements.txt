@@ -1,0 +1,5 @@
+pandas
+llmx
+streamlit
+openai
+pydantic
