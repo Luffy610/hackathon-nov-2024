@@ -124,6 +124,6 @@ class Summarizer:
         elif summary_method == "columns":
             del data_summary["fields"]
 
-        data_summary["field_name"] = data.columns.to_list()
+        data_summary["field_names"] = data.columns.to_list()
         data_summary["file_name"] = file_name
         return data_summary

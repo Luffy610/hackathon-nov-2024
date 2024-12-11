@@ -1,6 +1,6 @@
 
 from utils.datamodels import Goal
-from chart_code_template import ChartTemplate
+from llm_components.chart_code_template import ChartTemplate
 
 
 SYSTEM_PROMPT = """You are a helpful assistant highly skilled in writing PERFECT code for visualizations. 

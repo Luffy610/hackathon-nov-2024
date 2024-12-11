@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page - Data Summary</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<header>
+    <h1>Chart Generator Tool</h1>
+</header>
+
+<div class="container">
+    <!-- Data Summary Section -->
+    <section id="data-summary">
+        <div class="data-summary-header">
+            <h2>Data Summary</h2>
+            <button id="collapse-data-btn" class="collapse-btn" onclick="toggleDataSummary()">Collapse Data Summary</button>
+        </div>
+        <div id="data-grid">
+            <!-- Data containers (injected dynamically) -->
+            <div class="data-container">
+                <h3>Container 1</h3>
+                <p>Data for Container 1...</p>
+            </div>
+            <div class="data-container">
+                <h3>Container 2</h3>
+                <p>Data for Container 2...</p>
+            </div>
+            <!-- More containers -->
+        </div>
+    </section>
+
+    <!-- Goals Section -->
+    <section id="goals">
+        <div class="data-summary-header">
+        <h2>Goals Section</h2>
+        <button id="collapse-goals-btn" class="collapse-btn" onclick="toggleGoalSelection()">Collapse Goals</button>
+        </div>
+        <div id="goals-container">
+            <!-- Goal containers (injected dynamically) -->
+        </div>
+    </section>
+
+    <div>
+        <!-- Chart Generator Section -->
+        <section id="chart-generator">
+            <h2>Chart Generator</h2>
+
+            <div id="prompt-container">
+                <input type="text" id="prompt-input" placeholder="Enter your prompt here..." />
+                <button id="generate-btn" onclick="generateChart()">Generate</button>
+            </div>
+
+            <div id="chart-action-buttons">
+                <button id="explain-btn">Explain</button>
+                <button id="repair-btn">Repair</button>
+                <button id="refine-btn">Refine</button>
+            </div>
+
+            <div id="additional-content" style="display: none;">
+                <div id="explanation-content" class="additional-content-section"></div>
+                <div id="repair-content" class="additional-content-section"></div>
+                <div id="refinement-content" class="additional-content-section"></div>
+            </div>
+
+            <!-- Container for displaying the chart image -->
+            <div id="chart-image-container">
+                <!-- The chart image will be injected here dynamically -->
+            </div>
+
+            <!-- Code Snippet Container -->
+            <div id="code-snippet-container">
+                <h3 style="margin-bottom: 10px;">Chart Code:</h3>
+                <pre id="chart-code">const chart = new Chart("chartId", { ... });</pre>
+                <button id="copy-code-btn" onclick="copyCode()">Copy Code</button>
+            </div>
+        </section>
+    </div>
+
+</div>
+    <script src="main.js"></script>
+</body>
+</html>

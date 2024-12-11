@@ -3,3 +3,11 @@ llmx
 streamlit
 openai
 pydantic
+fastapi
+uvicorn
+python-multipart
+openpyxl
+dask
+matplotlib
+plotly
+xlwings

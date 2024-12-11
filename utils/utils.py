@@ -20,23 +20,23 @@ def clean_column_names(df):
     cleaned_df.columns = [clean_column_name(col) for col in cleaned_df.columns]
     return cleaned_df
 
-def read_dataframe(file_location, encoding='utf-8'):
-    file_extension = file_location.name.split(".")[-1]
+def read_dataframe(file, encoding='utf-8'):
+    file_extension = file.filename.split(".")[-1]
     read_funcs = {
-        'json': lambda: pd.read_json(file_location, orient='records', encoding=encoding),
-        'csv': lambda: pd.read_csv(file_location, encoding=encoding),
-        'xls': lambda: pd.read_excel(file_location, encoding=encoding),
-        'xlsx': lambda: pd.read_excel(file_location, encoding=encoding),
+        'json': lambda: pd.read_json(file.file, orient='records'),
+        'csv': lambda: pd.read_csv(file.file),
+        'xls': lambda: pd.read_excel(file.file),
+        'xlsx': lambda: pd.read_excel(file.file),
         'parquet': pd.read_parquet,
         'feather': pd.read_feather,
-        'tsv': lambda: pd.read_csv(file_location, sep="\t", encoding=encoding)
+        'tsv': lambda: pd.read_csv(file.file, sep="\t")
     }
     if file_extension not in read_funcs:
         raise ValueError('Unsupported File Type.')
     try:
         df = read_funcs[file_extension]()
     except Exception as e:
-        logger.error(f"Failed to read file: {file_location}, Error: {e}.")
+        logger.error(f"Failed to read file: {file.filename}, Error: {e}.")
         raise
     cleaned_df = clean_column_names(df)
     return cleaned_df

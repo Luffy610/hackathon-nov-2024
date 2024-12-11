@@ -1,7 +1,8 @@
+import base64
 from dataclasses import field
 from llmx import TextGenerationConfig
 from pydantic.dataclasses import dataclass
-from typing_extensions import Optional, List, Any
+from typing import Optional, List, Any, Union, Dict
 
 
 @dataclass
@@ -24,7 +25,7 @@ class Goal:
 **Rationale:** {self.rationale}
 """
 
-
+@dataclass
 class Persona:
     persona: str
     rationale: str
@@ -68,3 +69,29 @@ class Summary:
 
 {field_lines}
 """
+
+@dataclass
+class ChartExecutorResponse:
+
+    spec: Optional[Union[str, Dict]]
+    status: bool
+    raster: Optional[str]
+    code: str
+    library: str
+    error: Optional[Dict] = None
+
+    def _repr_mimebundle(self, include=None, exclude=None):
+        bundle = {"text/plain": self.code}
+        if self.raster is not None:
+            bundle["image/png"] = self.raster
+        if self.spec is not None:
+            bundle["application/vnd.vegalite.v5+json"] = self.spec
+
+        return bundle
+
+    def savefig(self, path):
+        if self.raster:
+            with open(path, 'wb') as f:
+                f.write(base64.b64decode(self.raster))
+        else:
+            raise FileNotFoundError("No ratser image to save")

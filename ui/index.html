@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<!-- Navigation Bar -->
+<nav>
+    <div class="nav-left"></div> <!-- This is to fill the space on the left side -->
+    <h1>Chart Generator Tool</h1>
+    <!-- Dropdown for Library -->
+    <div class="dropdown">
+        <label for="library">Library</label>
+        <select id="library">
+            <option value="matplotlib">matplotlib</option>
+            <option value="seaborn">seaborn</option>
+            <option value="pyplot">pyplot</option>
+            <option value="ggplot">ggplot</option>
+        </select>
+    </div>
+</nav>
+
+<!-- Main Content Area -->
+<div class="container">
+    <h2>Upload a File</h2>
+    <input type="file" id="file-upload" accept=".csv, .json, .txt, .xlsx, .parquet">
+    <button id="upload-btn">Upload</button>
+    <p id="upload-message"></p>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

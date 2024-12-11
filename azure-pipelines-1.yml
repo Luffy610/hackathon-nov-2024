@@ -1,0 +1,56 @@
+# Docker
+# Build and push an image to Azure Container Registry
+# https://docs.microsoft.com/azure/devops/pipelines/languages/docker
+
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  # Container registry service connection established during pipeline creation
+  dockerRegistryServiceConnection: '8bff52e6-5f9c-402d-b907-873cfb8f55d7'
+  imageRepository: 'alchemist'
+  containerRegistry: 'alchemists1.azurecr.io'
+  dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
+  tag: '$(Build.BuildId)'
+
+  # Agent VM image name
+  vmImageName: 'ubuntu-latest'
+  azureVMName: 'aialchemists'  # The name of your VM
+  azureVMResourceGroup: 'aialchemists1'  # The resource group containing the VM
+  azureVMUser: 'azureuser'  # The SSH username for the VM
+  azureVMPrivateKey: '$(azureVMPrivateKey)'  # Private SSH key for authentication (in Azure DevOps secure files)
+  azureVMIPAddress: '20.235.50.32'
+
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+    steps:
+    - task: Docker@2
+      displayName: Build and push an image to container registry
+      inputs:
+        command: buildAndPush
+        repository: $(imageRepository)
+        dockerfile: $(dockerfilePath)
+        containerRegistry: $(dockerRegistryServiceConnection)
+        tags: |
+          $(tag)
+    - task: AzureContainerApps@1
+      inputs:
+        azureSubscription: 'GenAI-AI Alchemists 1(21a014f5-b4ed-4791-bedc-fc2f15ab1014)'
+        acrName: 'alchemists1'
+        acrUsername: 'alchemists1'
+        imageToDeploy: '$(imageRepository):$(tag)'
+        containerAppName: 'alchemist'
+        resourceGroup: 'aialchemists1'
+        targetPort: '8080'
+        dockerfilePath: '$(dockerfilePath)'
+        containerAppEnvironment: managedEnvironment-aialchemists1
+    

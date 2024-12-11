@@ -1,0 +1,114 @@
+/* Basic reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Navigation Bar styles */
+nav {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.nav-left {
+    position: absolute;
+    left: 15px;
+}
+
+nav h1 {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+/* Dropdown container styles */
+.dropdown {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown label */
+.dropdown label {
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+/* Dropdown select styles */
+select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* Main content container */
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    max-width: 90%;
+    margin-top: 20px;
+}
+
+/* Heading style */
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* File input and button styles */
+input[type="file"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Message style */
+#upload-message {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #28a745;
+}

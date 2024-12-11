@@ -1,0 +1,295 @@
+/* Basic reset for margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Header styles */
+header {
+    width: 100%;
+    background-color: #007bff;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Container for each section */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Data Summary Section */
+#data-summary {
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;  /* Hide overflow content when collapsed */
+    max-height: 3000px;  /* Default large max-height (expanded state) */
+    visibility: visible; /* Ensure it's visible by default */
+    transition: max-height 0.3s ease, visibility 0s ease 0.3s;
+}
+
+/* Data Summary Header */
+.data-summary-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.data-summary-header h2 {
+    margin: 0;
+}
+
+.collapse-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.collapse-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Data grid content */
+#data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Auto responsive layout */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Responsive grid behavior */
+@media (max-width: 768px) {
+    .data-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .data-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Data container styles */
+.data-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: #333;
+}
+
+.data-container h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #007bff;
+}
+
+.data-container p {
+    font-size: 14px;
+    color: #555;
+}
+
+.data-container h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Properties Container */
+.properties-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-start;
+}
+
+/* Individual Property Styling */
+.properties-container p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Emphasize the labels in the properties (e.g., Data Type, Semantic Type) */
+.properties-container p strong {
+    color: #007bff;
+}
+
+#goals {
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    overflow: hidden;  /* Hide overflow content when collapsed */
+    max-height: 3000px;  /* Default large max-height (expanded state) */
+    visibility: visible; /* Ensure it's visible by default */
+    transition: max-height 0.3s ease, visibility 0s ease 0.3s;
+}
+
+/* Goal container styles */
+.goal-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* Question Title Styling */
+.goal-container h4 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #007bff;
+    font-weight: bold;
+}
+
+/* Properties Container for each Goal */
+.goal-container p {
+    font-size: 14px;
+    color: #555;
+}
+
+/* Emphasize the labels (e.g., Suggested Visualization, Rationale) */
+.goal-container p strong {
+    color: #007bff;
+}
+
+/* Layout for goals section */
+#goals-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Chart Generator Section Styles */
+#chart-generator {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#chart-generator h2 {
+    font-size: 22px;
+}
+
+#chart-generator p {
+    font-size: 16px;
+    color: #555;
+}
+
+#prompt-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#prompt-input {
+    width: 1200px;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#generate-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#generate-btn:hover {
+    background-color: #0056b3;
+}
+
+#chart-image-container img {
+    max-width: 100%;   /* Ensure the image doesn't exceed the width of its container */
+    max-height: 500px; /* Limit the height (adjust as needed) */
+    object-fit: contain; /* Preserve aspect ratio while filling the container */
+    display: block;     /* Remove extra space below the image */
+    margin: 0 auto;     /* Center the image horizontally */
+}
+
+#copy-code-btn{
+    margin-top: 10px;
+}
+
+.goal-container.selected {
+    background-color: #e3f2fd;  /* Light blue background when selected */
+    border: 2px solid #007bff;  /* Border to distinguish selected state */
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);  /* Enhance shadow for selected item */
+}
+
+#chart-action-buttons{
+    margin-top: -15px;
+}
+
+#explain-btn , #repair-btn, #refine-btn{
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+#additional-content {
+    margin-top: 20px;  /* Adds space between the buttons and the content */
+    overflow: hidden;
+    transition: height 0.5s ease-out;
+}
+
+/* Section inside the content that will expand */
+.additional-content-section {
+    display: none; /* Initially hidden */
+    margin-top: 15px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.additional-content-section.visible {
+    display: block;
+}
